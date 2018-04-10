@@ -131,18 +131,20 @@
 
 
 
-<meta name="description" content="_dataArray数据为json数据不能操作模型数组其中_dataArray为需要分类的数组，_titleArray为分好组的数组。     //首先把原数组中数据的日期取出来放入timeArr     NSMutableArray *timeArr=[NSMutableArray array];     [_dataArray enumerateObjectsUsingBlock:^(id">
+<meta name="description" content="下载的旧项目报错解决">
 <meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS把数组中按照条件分组">
-<meta property="og:url" content="hongdd.top/2018/03/01/iOS数组分组/index.html">
+<meta property="og:title" content="xcode旧项目">
+<meta property="og:url" content="hongdd.top/2018/04/10/xcode旧项目/index.html">
 <meta property="og:site_name" content="挚爱 | HUI">
-<meta property="og:description" content="_dataArray数据为json数据不能操作模型数组其中_dataArray为需要分类的数组，_titleArray为分好组的数组。     //首先把原数组中数据的日期取出来放入timeArr     NSMutableArray *timeArr=[NSMutableArray array];     [_dataArray enumerateObjectsUsingBlock:^(id">
+<meta property="og:description" content="下载的旧项目报错解决">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-01T15:39:36.053Z">
+<meta property="og:image" content="hongdd.top/2018/04/10/xcode旧项目/xcode旧项目/xcodejiu.png">
+<meta property="og:updated_time" content="2018-04-10T02:17:50.928Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS把数组中按照条件分组">
-<meta name="twitter:description" content="_dataArray数据为json数据不能操作模型数组其中_dataArray为需要分类的数组，_titleArray为分好组的数组。     //首先把原数组中数据的日期取出来放入timeArr     NSMutableArray *timeArr=[NSMutableArray array];     [_dataArray enumerateObjectsUsingBlock:^(id">
+<meta name="twitter:title" content="xcode旧项目">
+<meta name="twitter:description" content="下载的旧项目报错解决">
+<meta name="twitter:image" content="hongdd.top/2018/04/10/xcode旧项目/xcode旧项目/xcodejiu.png">
 
 
 
@@ -171,12 +173,12 @@
 </script>
 
 
-  <link rel="canonical" href="hongdd.top/2018/03/01/iOS数组分组/"/>
+  <link rel="canonical" href="hongdd.top/2018/04/10/xcode旧项目/"/>
 
 
 
 
-  <title>iOS把数组中按照条件分组 | 挚爱 | HUI</title>
+  <title>xcode旧项目 | 挚爱 | HUI</title>
   
 
 
@@ -343,7 +345,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="hongdd.top/2018/03/01/iOS数组分组/">
+    <link itemprop="mainEntityOfPage" href="hongdd.top/2018/04/10/xcode旧项目/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LY-Hong">
@@ -360,7 +362,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS把数组中按照条件分组</h1>
+          <h1 class="post-title" itemprop="name headline">xcode旧项目</h1>
         
 
         <div class="post-meta">
@@ -372,8 +374,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-01T23:29:57+08:00">
-                2018-03-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-10T10:11:48+08:00">
+                2018-04-10
               </time>
             
 
@@ -432,53 +434,9 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><h3 id="dataArray数据为json数据不能操作模型数组"><a href="#dataArray数据为json数据不能操作模型数组" class="headerlink" title="_dataArray数据为json数据不能操作模型数组"></a>_dataArray数据为json数据不能操作模型数组</h3><pre><code>其中_dataArray为需要分类的数组，_titleArray为分好组的数组。
-    //首先把原数组中数据的日期取出来放入timeArr
-    NSMutableArray *timeArr=[NSMutableArray array];
-    [_dataArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        <script src="/assets/js/APlayer.min.js"> </script><hr>
+<h3 id="下载的旧项目报错解决"><a href="#下载的旧项目报错解决" class="headerlink" title="下载的旧项目报错解决"></a>下载的旧项目报错解决</h3><p><img src="xcode旧项目/xcodejiu.png" alt="图片1 "></p>
 
-NSDictionary *currentDict=obj;
-NSString *time1=[currentDict objectForKey:@&quot;birthTime&quot;];
-NSString *month1=[[[[time1 componentsSeparatedByString:@&quot; &quot;] firstObject] componentsSeparatedByString:@&quot;-&quot;] objectAtIndex:1];
-NSString *day1=[[[[time1 componentsSeparatedByString:@&quot; &quot;] firstObject] componentsSeparatedByString:@&quot;-&quot;] objectAtIndex:2];
-NSString *currentStr1=[month1 stringByAppendingString:day1];
-[timeArr addObject:currentStr1];
-
-}];
-//使用asset把timeArr的日期去重
-NSSet *set = [NSSet setWithArray:timeArr];
-NSArray *userArray = [set allObjects];
-NSSortDescriptor *sd1 = [NSSortDescriptor sortDescriptorWithKey:nil ascending:NO];//yes升序排列，no,降序排列
-//按日期降序排列的日期数组
-NSArray *myary = [userArray sortedArrayUsingDescriptors:[NSArray arrayWithObjects:sd1, nil]];
-//此时得到的myary就是按照时间降序排列拍好的数组
-_titleArray=[NSMutableArray array];
-//遍历myary把_titleArray按照myary里的时间分成几个组每个组都是空的数组
-[myary enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-
-NSMutableArray *arr=[NSMutableArray array];
-[_titleArray addObject:arr];
-
-}];
-//遍历_dataArray取其中每个数据的日期看看与myary里的那个日期匹配就把这个数据装到_titleArray 对应的组中
-[_dataArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-
-NSDictionary *currentDict=obj;
-NSString *time1=[currentDict objectForKey:@&quot;birthTime&quot;];
-NSString *month1=[[[[time1 componentsSeparatedByString:@&quot; &quot;] firstObject] componentsSeparatedByString:@&quot;-&quot;] objectAtIndex:1];
-NSString *day1=[[[[time1 componentsSeparatedByString:@&quot; &quot;] firstObject] componentsSeparatedByString:@&quot;-&quot;] objectAtIndex:2];
-NSString *currentStr1=[month1 stringByAppendingString:day1];
-for (NSString *str in myary)
-{
-if([str isEqualToString:currentStr1])
-{
-NSMutableArray *arr=[_titleArray objectAtIndex:[myary indexOfObject:str]];
-//这里可以currentDict转模型，然后model加进数组中
-[arr addObject:currentDict];
-}
-}
-}];
-</code></pre>
       
     </div>
     
@@ -525,35 +483,6 @@ NSMutableArray *arr=[_titleArray objectAtIndex:[myary indexOfObject:str]];
         <div>
         
         
-<div class="my_post_copyright">
-<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-
-<!-- JS库 sweetalert 可修改路径 -->
-<script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<p><span>本文标题:</span><a href="/2018/03/01/iOS数组分组/">iOS把数组中按照条件分组</a></p>
-<p><span>文章作者:</span><a href="/" title="访问 LY-Hong 的个人博客">LY-Hong</a></p>
-<p><span>发布时间:</span>2018年03月01日 - 23:03</p>
-<p><span>最后更新:</span>2018年03月01日 - 23:03</p>
-<p><span>原始链接:</span><a href="/2018/03/01/iOS数组分组/" title="iOS把数组中按照条件分组">hongdd.top/2018/03/01/iOS数组分组/</a>
-<span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="hongdd.top/2018/03/01/iOS数组分组/"  aria-label="复制成功！"></i></span>
-</p>
-<p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
-</div>
-<script>
-var clipboard = new Clipboard('.fa-clipboard');
-$(".fa-clipboard").click(function(){
-clipboard.on('success', function(){
-swal({
-title: "",
-text: '复制成功',
-icon: "success",
-showConfirmButton: true
-});
-});
-});
-</script>
-
 
         
         </div>
@@ -583,8 +512,8 @@ showConfirmButton: true
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/28/我的备忘录/" rel="next" title="我的备忘录">
-                <i class="fa fa-chevron-left"></i> 我的备忘录
+              <a href="/2018/04/07/Mac使用/" rel="next" title="Mac使用">
+                <i class="fa fa-chevron-left"></i> Mac使用
               </a>
             
           </div>
@@ -592,10 +521,6 @@ showConfirmButton: true
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/10/Xcodeproj文件打不开/" rel="prev" title=".Xcodeproj文件打不开">
-                .Xcodeproj文件打不开 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -776,7 +701,7 @@ showConfirmButton: true
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#dataArray数据为json数据不能操作模型数组"><span class="nav-number">1.</span> <span class="nav-text">_dataArray数据为json数据不能操作模型数组</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载的旧项目报错解决"><span class="nav-number">1.</span> <span class="nav-text">下载的旧项目报错解决</span></a></li></ol></div>
             
 
           </div>
