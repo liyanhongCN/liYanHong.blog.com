@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>hongdd.top/2018/02/08/%E5%AE%9E%E7%94%A8%E6%8A%80%E6%9C%AF/%E6%88%91%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%BF%87%E7%A8%8B/</loc>
+    <lastmod>2018-04-16T02:44:56.318Z</lastmod>
+    <data>
+        <display>
+        <title>mac下利用hexo搭建一个博客</title>
+        <pubTime>2018-02-08T01:45:22.015Z</pubTime>
+        
+        <tag>学习</tag>
+         
+         
+           
+             
+              <breadCrumb title="实用技术" url="hongdd.top/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>hongdd.top/2018/04/10/iOS%E7%9F%A5%E8%AF%86/xcodemiss/</loc>
     <lastmod>2018-04-15T15:52:15.124Z</lastmod>
     <data>
@@ -50,26 +70,6 @@
         <display>
         <title>用Xcode打包上架流程</title>
         <pubTime>2018-04-15T15:03:31.184Z</pubTime>
-        
-        <tag>学习</tag>
-         
-         
-           
-             
-              <breadCrumb title="实用技术" url="hongdd.top/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E6%9C%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>hongdd.top/2018/02/08/%E5%AE%9E%E7%94%A8%E6%8A%80%E6%9C%AF/%E6%88%91%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%BF%87%E7%A8%8B/</loc>
-    <lastmod>2018-04-15T14:01:44.738Z</lastmod>
-    <data>
-        <display>
-        <title>mac下利用hexo搭建一个博客</title>
-        <pubTime>2018-02-08T01:45:22.015Z</pubTime>
         
         <tag>学习</tag>
          
