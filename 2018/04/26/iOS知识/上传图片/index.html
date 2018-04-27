@@ -141,7 +141,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2018/04/26/5ae13d3164d46.gif">
 <meta property="og:image" content="https://i.loli.net/2018/04/27/5ae32e30f1d98.png">
-<meta property="og:updated_time" content="2018-04-27T14:39:45.248Z">
+<meta property="og:updated_time" content="2018-04-27T14:44:15.073Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="上传图片带进度条">
 <meta name="twitter:description" content="先上图最近项目要上传图片功能 ，界面应该不用我多说啦  配置.info 文件如下图  选择图片依赖AVFoundation框架，加载图片用SDWebimage #import &amp;quot;UIImageView+WebCache.h&amp;quot; #import &amp;lt;AVFoundation/AVFoundation.h&amp;gt;  遵守协议 &amp;lt;UIActionSheetDelegate">
@@ -452,13 +452,67 @@
 @property (nonatomic, strong) UIImageView *imageV;
 </code></pre></li>
 <li><p>UIAlertController弹出选择图片提示框</p>
-<p>#pragma -mark —————————————————选择图片————————————————————<br>-(void)ChoosePicture{<br>__block typeof (self) weak_self = self;</p>
-<p>_picker = [[UIImagePickerController alloc] init];<br>_picker.delegate = self;<br>_picker.allowsEditing = YES;</p>
-<p>UIAlertController <em>alertController = [UIAlertController alertControllerWithTitle:@”请选择图片”<br>message:@””<br>preferredStyle:UIAlertControllerStyleActionSheet];<br>UIAlertAction</em> cancelAction = [UIAlertAction actionWithTitle:@”取消” style:UIAlertActionStyleCancel handler:^(UIAlertAction <em> action) {}];<br>UIAlertAction</em> fromPhotoAction = [UIAlertAction actionWithTitle:@”从相册选择” style:UIAlertActionStyleDefault                                                                 handler:^(UIAlertAction * action) {<br>weak_self.picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;<br>dispatch_async(dispatch_get_main_queue(), ^{<br>[weak_self presentViewController:weak_self.picker animated:YES completion:nil];<br>});</p>
-<p>NSLog(@”从相册选择”);<br>}];<br>UIAlertAction<em> fromCameraAction = [UIAlertAction actionWithTitle:@”相机” style:UIAlertActionStyleDefault                                                             handler:^(UIAlertAction </em> action) {<br>NSLog(@”相机”);</p>
-<p>UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;<br>if(! [UIImagePickerController isSourceTypeAvailable:sourceType]){<br>NSString <em>tips = @”相机不可用”;<br>UIAlertController </em>alertController = [UIAlertController alertControllerWithTitle:@”无法使用相机” message:tips preferredStyle:UIAlertControllerStyleAlert];<br>UIAlertAction <em>cancelAction = [UIAlertAction actionWithTitle:@”取消” style:UIAlertActionStyleCancel handler:^(UIAlertAction </em>action) {<br>NSLog(@”取消”);<br>}];<br>UIAlertAction <em>otherAction = [UIAlertAction actionWithTitle:@”确定” style:UIAlertActionStyleDefault handler:^(UIAlertAction </em>action) {<br>NSLog(@”确定”);<br>}];<br>[alertController addAction:cancelAction];<br>[alertController addAction:otherAction];<br>[self presentViewController:alertController animated:YES completion:nil];<br>return;<br>}<br>self-&gt;_picker.sourceType = UIImagePickerControllerSourceTypeCamera;<br>[self presentViewController:self-&gt;_picker animated:YES completion:nil];<br>if (![self getCameraRecordPermisson]) {<br>NSString <em>tips = @”请在iPhone的“设置-隐私-相机”中允许访问相机”;<br>UIAlertController </em>alertController = [UIAlertController alertControllerWithTitle:@”无法使用相机” message:tips preferredStyle:UIAlertControllerStyleAlert];<br>UIAlertAction <em>cancelAction = [UIAlertAction actionWithTitle:@”取消” style:UIAlertActionStyleCancel handler:^(UIAlertAction </em>action) {<br>NSLog(@”取消”);<br>}];<br>UIAlertAction <em>otherAction = [UIAlertAction actionWithTitle:@”确定” style:UIAlertActionStyleDefault handler:^(UIAlertAction </em>action) {<br>NSLog(@”确定”);<br>}];<br>[alertController addAction:cancelAction];<br>[alertController addAction:otherAction];<br>[self presentViewController:alertController animated:YES completion:nil];</p>
-<p>}<br>}];<br>[alertController addAction:cancelAction];<br>[alertController addAction:fromCameraAction];<br>[alertController addAction:fromPhotoAction];<br>[self presentViewController:alertController animated:YES completion:nil];<br>}</p>
-</li>
+<pre><code>#pragma -mark —————————————————选择图片————————————————————
+-(void)ChoosePicture{
+__block typeof (self) weak_self = self;
+
+_picker = [[UIImagePickerController alloc] init];
+_picker.delegate = self;
+_picker.allowsEditing = YES;
+
+UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@&quot;请选择图片&quot;
+message:@&quot;&quot;
+preferredStyle:UIAlertControllerStyleActionSheet];
+UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@&quot;取消&quot; style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {}];
+UIAlertAction* fromPhotoAction = [UIAlertAction actionWithTitle:@&quot;从相册选择&quot; style:UIAlertActionStyleDefault                                                                 handler:^(UIAlertAction * action) {
+weak_self.picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+dispatch_async(dispatch_get_main_queue(), ^{
+[weak_self presentViewController:weak_self.picker animated:YES completion:nil];
+});
+
+NSLog(@&quot;从相册选择&quot;);
+}];
+UIAlertAction* fromCameraAction = [UIAlertAction actionWithTitle:@&quot;相机&quot; style:UIAlertActionStyleDefault                                                             handler:^(UIAlertAction * action) {
+NSLog(@&quot;相机&quot;);
+
+UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
+if(! [UIImagePickerController isSourceTypeAvailable:sourceType]){
+NSString *tips = @&quot;相机不可用&quot;;
+UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@&quot;无法使用相机&quot; message:tips preferredStyle:UIAlertControllerStyleAlert];
+UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@&quot;取消&quot; style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+NSLog(@&quot;取消&quot;);
+}];
+UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@&quot;确定&quot; style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+NSLog(@&quot;确定&quot;);
+}];
+[alertController addAction:cancelAction];
+[alertController addAction:otherAction];
+[self presentViewController:alertController animated:YES completion:nil];
+return;
+}
+self-&gt;_picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+[self presentViewController:self-&gt;_picker animated:YES completion:nil];
+if (![self getCameraRecordPermisson]) {
+NSString *tips = @&quot;请在iPhone的“设置-隐私-相机”中允许访问相机&quot;;
+UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@&quot;无法使用相机&quot; message:tips preferredStyle:UIAlertControllerStyleAlert];
+UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@&quot;取消&quot; style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+NSLog(@&quot;取消&quot;);
+}];
+UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@&quot;确定&quot; style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+NSLog(@&quot;确定&quot;);
+}];
+[alertController addAction:cancelAction];
+[alertController addAction:otherAction];
+[self presentViewController:alertController animated:YES completion:nil];
+
+}
+}];
+[alertController addAction:cancelAction];
+[alertController addAction:fromCameraAction];
+[alertController addAction:fromPhotoAction];
+[self presentViewController:alertController animated:YES completion:nil];
+}
+</code></pre></li>
 <li><p>选择图或者拍照后的回调</p>
 <pre><code>#pragma mark UIImagePickerControllerDelegate
 //选择图或者拍照后的回调
