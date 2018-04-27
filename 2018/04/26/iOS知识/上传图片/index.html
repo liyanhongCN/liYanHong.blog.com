@@ -141,7 +141,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2018/04/26/5ae13d3164d46.gif">
 <meta property="og:image" content="https://i.loli.net/2018/04/27/5ae32e30f1d98.png">
-<meta property="og:updated_time" content="2018-04-27T14:33:22.005Z">
+<meta property="og:updated_time" content="2018-04-27T14:39:45.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="上传图片带进度条">
 <meta name="twitter:description" content="先上图最近项目要上传图片功能 ，界面应该不用我多说啦  配置.info 文件如下图  选择图片依赖AVFoundation框架，加载图片用SDWebimage #import &amp;quot;UIImageView+WebCache.h&amp;quot; #import &amp;lt;AVFoundation/AVFoundation.h&amp;gt;  遵守协议 &amp;lt;UIActionSheetDelegate">
@@ -478,7 +478,7 @@ if (editedImage) {
 }
 }];
 }
-</code></pre><ol>
+</code></pre></li>
 <li><p>获得设备是否有访问相机权限</p>
 <pre><code>-(BOOL)getCameraRecordPermisson
  {
@@ -492,30 +492,60 @@ if (editedImage) {
  }
 </code></pre></li>
 </ol>
-</li>
-</ol>
 <hr>
 <h3 id="上传图片到服务器"><a href="#上传图片到服务器" class="headerlink" title="上传图片到服务器"></a>上传图片到服务器</h3><pre><code>-(void)doUploadPhoto:(UIImage *)image{
 </code></pre><ol>
 <li><p>图片数据转成filedata</p>
 <pre><code>NSData *fileData = UIImageJPEGRepresentation(image, 1.0);
-</code></pre><ol>
-<li>创建一个管理者 上传带的参数</li>
-</ol>
-<p>NSDictionary *dic=@{@”jwid”:JWid,<br>@”jwpassword”:JWpassword,<br>@”pid”:self.Gmodel.ID,<br>@”position”:self.position,<br>@”picid”:self.picid,<br>};</p>
-<ol>
+</code></pre></li>
+<li><p>创建一个管理者 上传带的参数</p>
+<pre><code>NSDictionary *dic=@{@&quot;jwid&quot;:JWid,
+@&quot;jwpassword&quot;:JWpassword,
+@&quot;pid&quot;:self.Gmodel.ID,
+@&quot;position&quot;:self.position,
+@&quot;picid&quot;:self.picid,
+};
+</code></pre></li>
 <li><p>发送一个请求 url  带上传进度</p>
-<p> [self hudTipWillShow:YES];<br> [[AFNetworkTool shareManager]upLoadSinglePictureWithUrl:JW_UPGRID parameters:dic fileData:fileData  progerss:^(NSProgress <em> _Nullable progress) {<br> NSLog(@”–progress–%@”, progress);<br> self.HUD.progress = progress.fractionCompleted;<br> self-&gt;_HUD.labelText = [NSString stringWithFormat:@”%2.f%%”,progress.fractionCompleted</em>100];<br> } success:^(id  _Nullable json) {<br> NSLog(@”–json–%@”, json);</p>
-<p> [self hudTipWillShow:NO];<br> } failure:^(NSError * _Nullable error) {<br> NSLog(@”–error–%@”, error);<br> [MBProgressHUD showError:@”上传失败”];<br> [self hudTipWillShow:NO];<br> }];<br> }</p>
-</li>
+<pre><code>[self hudTipWillShow:YES];
+[[AFNetworkTool shareManager]upLoadSinglePictureWithUrl:JW_UPGRID parameters:dic fileData:fileData  progerss:^(NSProgress * _Nullable progress) {
+NSLog(@&quot;--progress--%@&quot;, progress);
+self.HUD.progress = progress.fractionCompleted;
+self-&gt;_HUD.labelText = [NSString stringWithFormat:@&quot;%2.f%%&quot;,progress.fractionCompleted*100];
+} success:^(id  _Nullable json) {
+NSLog(@&quot;--json--%@&quot;, json);
+
+[self hudTipWillShow:NO];
+} failure:^(NSError * _Nullable error) {
+NSLog(@&quot;--error--%@&quot;, error);
+[MBProgressHUD showError:@&quot;上传失败&quot;];
+[self hudTipWillShow:NO];
+}];
+}
+</code></pre></li>
 <li><p>用MBProgressHUD显示上传进度</p>
-<p>#pragma mark – init MBProgressHUD</p>
-<ul>
-<li>(void)hudTipWillShow:(BOOL)willShow{<br>if (willShow) {<br>[self resignFirstResponder];<br>UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;<br>if (!_HUD) {<br>_HUD = [MBProgressHUD showHUDAddedTo:keyWindow animated:YES];<br>_HUD.mode = MBProgressHUDModeDeterminateHorizontalBar;<br>_HUD.progress = 0;<br>_HUD.labelText = @”0%”;<br>_HUD.removeFromSuperViewOnHide = YES;<br>}else{<br>_HUD.progress = 0;<br>_HUD.labelText = @”0%”;<br>[keyWindow addSubview:_HUD];<br>[_HUD show:YES];<br>}<br>}else{<br>[_HUD hide:YES];<br>}<br>}</li>
-</ul>
-</li>
-</ol>
-</li>
+<pre><code>#pragma mark -- init MBProgressHUD
+- (void)hudTipWillShow:(BOOL)willShow{
+if (willShow) {
+[self resignFirstResponder];
+UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+if (!_HUD) {
+_HUD = [MBProgressHUD showHUDAddedTo:keyWindow animated:YES];
+_HUD.mode = MBProgressHUDModeDeterminateHorizontalBar;
+_HUD.progress = 0;
+_HUD.labelText = @&quot;0%&quot;;
+_HUD.removeFromSuperViewOnHide = YES;
+}else{
+_HUD.progress = 0;
+_HUD.labelText = @&quot;0%&quot;;
+[keyWindow addSubview:_HUD];
+[_HUD show:YES];
+}
+}else{
+[_HUD hide:YES];
+}
+}
+</code></pre></li>
 </ol>
 
       
