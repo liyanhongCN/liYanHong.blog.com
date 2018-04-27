@@ -131,19 +131,20 @@
 
 
 
-<meta name="description" content="先上图最近项目要上传图片功能">
+<meta name="description" content="先上图最近项目要上传图片功能 ，界面应该不用我多说啦  配置.info 文件如下图  选择图片依赖AVFoundation框架，加载图片用SDWebimage #import &amp;quot;UIImageView+WebCache.h&amp;quot; #import &amp;lt;AVFoundation/AVFoundation.h&amp;gt;  遵守协议 &amp;lt;UIActionSheetDelegate">
 <meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="上传图片">
+<meta property="og:title" content="上传图片带进度条">
 <meta property="og:url" content="hongdd.top/2018/04/26/iOS知识/上传图片/index.html">
 <meta property="og:site_name" content="挚爱 | HUI">
-<meta property="og:description" content="先上图最近项目要上传图片功能">
+<meta property="og:description" content="先上图最近项目要上传图片功能 ，界面应该不用我多说啦  配置.info 文件如下图  选择图片依赖AVFoundation框架，加载图片用SDWebimage #import &amp;quot;UIImageView+WebCache.h&amp;quot; #import &amp;lt;AVFoundation/AVFoundation.h&amp;gt;  遵守协议 &amp;lt;UIActionSheetDelegate">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2018/04/26/5ae13d3164d46.gif">
-<meta property="og:updated_time" content="2018-04-26T02:46:29.916Z">
+<meta property="og:image" content="https://i.loli.net/2018/04/27/5ae32e30f1d98.png">
+<meta property="og:updated_time" content="2018-04-27T14:33:22.005Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="上传图片">
-<meta name="twitter:description" content="先上图最近项目要上传图片功能">
+<meta name="twitter:title" content="上传图片带进度条">
+<meta name="twitter:description" content="先上图最近项目要上传图片功能 ，界面应该不用我多说啦  配置.info 文件如下图  选择图片依赖AVFoundation框架，加载图片用SDWebimage #import &amp;quot;UIImageView+WebCache.h&amp;quot; #import &amp;lt;AVFoundation/AVFoundation.h&amp;gt;  遵守协议 &amp;lt;UIActionSheetDelegate">
 <meta name="twitter:image" content="https://i.loli.net/2018/04/26/5ae13d3164d46.gif">
 
 
@@ -178,7 +179,7 @@
 
 
 
-  <title>上传图片 | 挚爱 | HUI</title>
+  <title>上传图片带进度条 | 挚爱 | HUI</title>
   
 
 
@@ -362,7 +363,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">上传图片</h1>
+          <h1 class="post-title" itemprop="name headline">上传图片带进度条</h1>
         
 
         <div class="post-meta">
@@ -435,7 +436,87 @@
 
       
         <script src="/assets/js/APlayer.min.js"> </script><hr>
-<h3 id="先上图"><a href="#先上图" class="headerlink" title="先上图"></a>先上图</h3><p>最近项目要上传图片功能<br><a href="https://i.loli.net/2018/04/26/5ae13d3164d46.gif" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/04/26/5ae13d3164d46.gif" alt="上传图片.gif"></a></p>
+<h3 id="先上图"><a href="#先上图" class="headerlink" title="先上图"></a>先上图</h3><p>最近项目要上传图片功能 ，界面应该不用我多说啦<br><a href="https://i.loli.net/2018/04/26/5ae13d3164d46.gif" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/04/26/5ae13d3164d46.gif" alt="上传图片.gif"></a></p>
+<hr>
+<h3 id="配置-info-文件如下图"><a href="#配置-info-文件如下图" class="headerlink" title="配置.info 文件如下图"></a>配置.info 文件如下图</h3><p><img src="https://i.loli.net/2018/04/27/5ae32e30f1d98.png" alt="设置权限.png"></p>
+<ol>
+<li><p>选择图片依赖AVFoundation框架，加载图片用SDWebimage</p>
+<pre><code>#import &quot;UIImageView+WebCache.h&quot;
+#import &lt;AVFoundation/AVFoundation.h&gt;
+</code></pre></li>
+<li><p>遵守协议</p>
+<pre><code>&lt;UIActionSheetDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate&gt;
+</code></pre></li>
+<li><p>显示的图片视图和自带的照片选择器</p>
+<pre><code>@property (nonatomic, strong) UIImagePickerController *picker;
+@property (nonatomic, strong) UIImageView *imageV;
+</code></pre></li>
+<li><p>UIAlertController弹出选择图片提示框</p>
+<p>#pragma -mark —————————————————选择图片————————————————————<br>-(void)ChoosePicture{<br>__block typeof (self) weak_self = self;</p>
+<p>_picker = [[UIImagePickerController alloc] init];<br>_picker.delegate = self;<br>_picker.allowsEditing = YES;</p>
+<p>UIAlertController <em>alertController = [UIAlertController alertControllerWithTitle:@”请选择图片”<br>message:@””<br>preferredStyle:UIAlertControllerStyleActionSheet];<br>UIAlertAction</em> cancelAction = [UIAlertAction actionWithTitle:@”取消” style:UIAlertActionStyleCancel handler:^(UIAlertAction <em> action) {}];<br>UIAlertAction</em> fromPhotoAction = [UIAlertAction actionWithTitle:@”从相册选择” style:UIAlertActionStyleDefault                                                                 handler:^(UIAlertAction * action) {<br>weak_self.picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;<br>dispatch_async(dispatch_get_main_queue(), ^{<br>[weak_self presentViewController:weak_self.picker animated:YES completion:nil];<br>});</p>
+<p>NSLog(@”从相册选择”);<br>}];<br>UIAlertAction<em> fromCameraAction = [UIAlertAction actionWithTitle:@”相机” style:UIAlertActionStyleDefault                                                             handler:^(UIAlertAction </em> action) {<br>NSLog(@”相机”);</p>
+<p>UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;<br>if(! [UIImagePickerController isSourceTypeAvailable:sourceType]){<br>NSString <em>tips = @”相机不可用”;<br>UIAlertController </em>alertController = [UIAlertController alertControllerWithTitle:@”无法使用相机” message:tips preferredStyle:UIAlertControllerStyleAlert];<br>UIAlertAction <em>cancelAction = [UIAlertAction actionWithTitle:@”取消” style:UIAlertActionStyleCancel handler:^(UIAlertAction </em>action) {<br>NSLog(@”取消”);<br>}];<br>UIAlertAction <em>otherAction = [UIAlertAction actionWithTitle:@”确定” style:UIAlertActionStyleDefault handler:^(UIAlertAction </em>action) {<br>NSLog(@”确定”);<br>}];<br>[alertController addAction:cancelAction];<br>[alertController addAction:otherAction];<br>[self presentViewController:alertController animated:YES completion:nil];<br>return;<br>}<br>self-&gt;_picker.sourceType = UIImagePickerControllerSourceTypeCamera;<br>[self presentViewController:self-&gt;_picker animated:YES completion:nil];<br>if (![self getCameraRecordPermisson]) {<br>NSString <em>tips = @”请在iPhone的“设置-隐私-相机”中允许访问相机”;<br>UIAlertController </em>alertController = [UIAlertController alertControllerWithTitle:@”无法使用相机” message:tips preferredStyle:UIAlertControllerStyleAlert];<br>UIAlertAction <em>cancelAction = [UIAlertAction actionWithTitle:@”取消” style:UIAlertActionStyleCancel handler:^(UIAlertAction </em>action) {<br>NSLog(@”取消”);<br>}];<br>UIAlertAction <em>otherAction = [UIAlertAction actionWithTitle:@”确定” style:UIAlertActionStyleDefault handler:^(UIAlertAction </em>action) {<br>NSLog(@”确定”);<br>}];<br>[alertController addAction:cancelAction];<br>[alertController addAction:otherAction];<br>[self presentViewController:alertController animated:YES completion:nil];</p>
+<p>}<br>}];<br>[alertController addAction:cancelAction];<br>[alertController addAction:fromCameraAction];<br>[alertController addAction:fromPhotoAction];<br>[self presentViewController:alertController animated:YES completion:nil];<br>}</p>
+</li>
+<li><p>选择图或者拍照后的回调</p>
+<pre><code>#pragma mark UIImagePickerControllerDelegate
+//选择图或者拍照后的回调
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+UIImage *orignalImage = [info objectForKey:UIImagePickerControllerOriginalImage];//原图
+UIImage *editedImage = [info objectForKey:UIImagePickerControllerEditedImage];//编辑后的图片
+
+_imageV.image=editedImage;
+// 拍照后保存原图片到相册中
+if (picker.sourceType == UIImagePickerControllerSourceTypeCamera &amp;&amp; orignalImage) {
+UIImageWriteToSavedPhotosAlbum(orignalImage, self, nil, NULL);
+}
+//上传照片
+[picker dismissViewControllerAnimated:YES completion:^{
+if (editedImage) {
+[self doUploadPhoto:editedImage];
+}
+}];
+}
+</code></pre><ol>
+<li><p>获得设备是否有访问相机权限</p>
+<pre><code>-(BOOL)getCameraRecordPermisson
+ {
+ NSString * mediaType = AVMediaTypeVideo;
+ AVAuthorizationStatus  authorizationStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+ if (authorizationStatus == AVAuthorizationStatusRestricted|| authorizationStatus == AVAuthorizationStatusDenied)
+ {
+ return NO;
+ }
+ return YES;
+ }
+</code></pre></li>
+</ol>
+</li>
+</ol>
+<hr>
+<h3 id="上传图片到服务器"><a href="#上传图片到服务器" class="headerlink" title="上传图片到服务器"></a>上传图片到服务器</h3><pre><code>-(void)doUploadPhoto:(UIImage *)image{
+</code></pre><ol>
+<li><p>图片数据转成filedata</p>
+<pre><code>NSData *fileData = UIImageJPEGRepresentation(image, 1.0);
+</code></pre><ol>
+<li>创建一个管理者 上传带的参数</li>
+</ol>
+<p>NSDictionary *dic=@{@”jwid”:JWid,<br>@”jwpassword”:JWpassword,<br>@”pid”:self.Gmodel.ID,<br>@”position”:self.position,<br>@”picid”:self.picid,<br>};</p>
+<ol>
+<li><p>发送一个请求 url  带上传进度</p>
+<p> [self hudTipWillShow:YES];<br> [[AFNetworkTool shareManager]upLoadSinglePictureWithUrl:JW_UPGRID parameters:dic fileData:fileData  progerss:^(NSProgress <em> _Nullable progress) {<br> NSLog(@”–progress–%@”, progress);<br> self.HUD.progress = progress.fractionCompleted;<br> self-&gt;_HUD.labelText = [NSString stringWithFormat:@”%2.f%%”,progress.fractionCompleted</em>100];<br> } success:^(id  _Nullable json) {<br> NSLog(@”–json–%@”, json);</p>
+<p> [self hudTipWillShow:NO];<br> } failure:^(NSError * _Nullable error) {<br> NSLog(@”–error–%@”, error);<br> [MBProgressHUD showError:@”上传失败”];<br> [self hudTipWillShow:NO];<br> }];<br> }</p>
+</li>
+<li><p>用MBProgressHUD显示上传进度</p>
+<p>#pragma mark – init MBProgressHUD</p>
+<ul>
+<li>(void)hudTipWillShow:(BOOL)willShow{<br>if (willShow) {<br>[self resignFirstResponder];<br>UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;<br>if (!_HUD) {<br>_HUD = [MBProgressHUD showHUDAddedTo:keyWindow animated:YES];<br>_HUD.mode = MBProgressHUDModeDeterminateHorizontalBar;<br>_HUD.progress = 0;<br>_HUD.labelText = @”0%”;<br>_HUD.removeFromSuperViewOnHide = YES;<br>}else{<br>_HUD.progress = 0;<br>_HUD.labelText = @”0%”;<br>[keyWindow addSubview:_HUD];<br>[_HUD show:YES];<br>}<br>}else{<br>[_HUD hide:YES];<br>}<br>}</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
 
       
     </div>
@@ -489,11 +570,11 @@
 <!-- JS库 sweetalert 可修改路径 -->
 <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<p><span>本文标题:</span><a href="/2018/04/26/iOS知识/上传图片/">上传图片</a></p>
+<p><span>本文标题:</span><a href="/2018/04/26/iOS知识/上传图片/">上传图片带进度条</a></p>
 <p><span>文章作者:</span><a href="/" title="访问 LY-Hong 的个人博客">LY-Hong</a></p>
 <p><span>发布时间:</span>2018年04月26日 - 10:04</p>
-<p><span>最后更新:</span>2018年04月26日 - 10:04</p>
-<p><span>原始链接:</span><a href="/2018/04/26/iOS知识/上传图片/" title="上传图片">hongdd.top/2018/04/26/iOS知识/上传图片/</a>
+<p><span>最后更新:</span>2018年04月27日 - 22:04</p>
+<p><span>原始链接:</span><a href="/2018/04/26/iOS知识/上传图片/" title="上传图片带进度条">hongdd.top/2018/04/26/iOS知识/上传图片/</a>
 <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="hongdd.top/2018/04/26/iOS知识/上传图片/"  aria-label="复制成功！"></i></span>
 </p>
 <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
@@ -730,7 +811,7 @@ showConfirmButton: true
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#先上图"><span class="nav-number">1.</span> <span class="nav-text">先上图</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#先上图"><span class="nav-number">1.</span> <span class="nav-text">先上图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-info-文件如下图"><span class="nav-number">2.</span> <span class="nav-text">配置.info 文件如下图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传图片到服务器"><span class="nav-number">3.</span> <span class="nav-text">上传图片到服务器</span></a></li></ol></div>
             
 
           </div>
