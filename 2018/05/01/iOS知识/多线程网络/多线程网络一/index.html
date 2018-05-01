@@ -118,7 +118,7 @@
 
 
 
-  <meta name="keywords" content="iOS记错," />
+  <meta name="keywords" content="iOS 多线程," />
 
 
 
@@ -131,20 +131,21 @@
 
 
 
-<meta name="description" content="iOS很多优秀开源项目版本支持低 现在下下来，运行会报错，我之前傻傻的，把好项目给删了，还很生气，辛辛苦苦下一伙，还跑不起    找到图中3的位置，调整支持版本就可以啦，很简单吧！">
-<meta name="keywords" content="iOS记错">
+<meta name="description" content="进程 进程是指系统正在运行的一个应用程序 每个进程是独立的线程 进程想要执行任务，必须的有线程（每个进程至少有一条线程） 一个进程的所有任务都在线程中执行多线程 一个进程可以开启多条线程，每条线程并行（同时）执行不同的任务EG：进程—&amp;gt;车间，线程—&amp;gt;车间工人多线程优点：   适当提高程序执行效率  提高资源利用率（CPU、内存利用率）多线程缺点： 创建线程是有开销的，iOS下主要成本">
+<meta name="keywords" content="iOS 多线程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="xcodemiss">
-<meta property="og:url" content="hongdd.top/2018/04/10/iOS知识/xcodemiss/index.html">
+<meta property="og:title" content="多线程基础（一）">
+<meta property="og:url" content="hongdd.top/2018/05/01/iOS知识/多线程网络/多线程网络一/index.html">
 <meta property="og:site_name" content="挚爱 | HUI">
-<meta property="og:description" content="iOS很多优秀开源项目版本支持低 现在下下来，运行会报错，我之前傻傻的，把好项目给删了，还很生气，辛辛苦苦下一伙，还跑不起    找到图中3的位置，调整支持版本就可以啦，很简单吧！">
+<meta property="og:description" content="进程 进程是指系统正在运行的一个应用程序 每个进程是独立的线程 进程想要执行任务，必须的有线程（每个进程至少有一条线程） 一个进程的所有任务都在线程中执行多线程 一个进程可以开启多条线程，每条线程并行（同时）执行不同的任务EG：进程—&amp;gt;车间，线程—&amp;gt;车间工人多线程优点：   适当提高程序执行效率  提高资源利用率（CPU、内存利用率）多线程缺点： 创建线程是有开销的，iOS下主要成本">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.loli.net/2018/04/14/5ad15a190b65e.png">
-<meta property="og:updated_time" content="2018-04-15T15:52:15.124Z">
+<meta property="og:image" content="https://i.loli.net/2018/05/01/5ae8717148111.png">
+<meta property="og:image" content="https://i.loli.net/2018/05/01/5ae87321b3cb2.png">
+<meta property="og:updated_time" content="2018-05-01T14:05:59.491Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xcodemiss">
-<meta name="twitter:description" content="iOS很多优秀开源项目版本支持低 现在下下来，运行会报错，我之前傻傻的，把好项目给删了，还很生气，辛辛苦苦下一伙，还跑不起    找到图中3的位置，调整支持版本就可以啦，很简单吧！">
-<meta name="twitter:image" content="https://i.loli.net/2018/04/14/5ad15a190b65e.png">
+<meta name="twitter:title" content="多线程基础（一）">
+<meta name="twitter:description" content="进程 进程是指系统正在运行的一个应用程序 每个进程是独立的线程 进程想要执行任务，必须的有线程（每个进程至少有一条线程） 一个进程的所有任务都在线程中执行多线程 一个进程可以开启多条线程，每条线程并行（同时）执行不同的任务EG：进程—&amp;gt;车间，线程—&amp;gt;车间工人多线程优点：   适当提高程序执行效率  提高资源利用率（CPU、内存利用率）多线程缺点： 创建线程是有开销的，iOS下主要成本">
+<meta name="twitter:image" content="https://i.loli.net/2018/05/01/5ae8717148111.png">
 
 
 
@@ -173,12 +174,12 @@
 </script>
 
 
-  <link rel="canonical" href="hongdd.top/2018/04/10/iOS知识/xcodemiss/"/>
+  <link rel="canonical" href="hongdd.top/2018/05/01/iOS知识/多线程网络/多线程网络一/"/>
 
 
 
 
-  <title>xcodemiss | 挚爱 | HUI</title>
+  <title>多线程基础（一） | 挚爱 | HUI</title>
   
 
 
@@ -345,7 +346,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="hongdd.top/2018/04/10/iOS知识/xcodemiss/">
+    <link itemprop="mainEntityOfPage" href="hongdd.top/2018/05/01/iOS知识/多线程网络/多线程网络一/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LY-Hong">
@@ -362,7 +363,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">xcodemiss</h1>
+          <h1 class="post-title" itemprop="name headline">多线程基础（一）</h1>
         
 
         <div class="post-meta">
@@ -374,8 +375,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-10T10:27:12+08:00">
-                2018-04-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-01T21:38:33+08:00">
+                2018-05-01
               </time>
             
 
@@ -434,13 +435,20 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><hr>
-<h3 id="iOS很多优秀开源项目版本支持低"><a href="#iOS很多优秀开源项目版本支持低" class="headerlink" title="iOS很多优秀开源项目版本支持低"></a>iOS很多优秀开源项目版本支持低</h3><ol>
-<li>现在下下来，运行会报错，我之前傻傻的，把好项目给删了，还很生气，辛辛苦苦下一伙，还跑不起</li>
-</ol>
-<p><img src="https://i.loli.net/2018/04/14/5ad15a190b65e.png" alt="解决方案"></p>
+        <script src="/assets/js/APlayer.min.js"> </script><h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><ul>
+<li>进程是指系统正在运行的一个应用程序</li>
+<li>每个进程是独立的<h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3></li>
+<li>进程想要执行任务，必须的有线程（每个进程至少有一条线程）</li>
+<li>一个进程的所有任务都在线程中执行<h3 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h3></li>
+<li>一个进程可以开启多条线程，每条线程并行（同时）执行不同的任务<br>EG：进程—&gt;车间，线程—&gt;车间工人<h4 id="多线程优点："><a href="#多线程优点：" class="headerlink" title="多线程优点："></a>多线程优点：</h4></li>
+</ul>
 <ol>
-<li>找到图中3的位置，调整支持版本就可以啦，很简单吧！</li>
+<li>适当提高程序执行效率 </li>
+<li>提高资源利用率（CPU、内存利用率）<h4 id="多线程缺点："><a href="#多线程缺点：" class="headerlink" title="多线程缺点："></a>多线程缺点：</h4></li>
+<li>创建线程是有开销的，iOS下主要成本包括：内核数据结构（大约1KB）、栈空间（子线程512KB、主线程1MB，也可以使用-setStackSize:设置，但必须是4K的倍数，而且最小是16K），创建线程大约需要90毫秒的创建时间</li>
+<li>如果开启大量的线程，会降低程序的性能</li>
+<li>线程越多，CPU在调度线程上的开销就越大</li>
+<li>程序设计更加复杂：比如线程之间的通信、多线程的数据共享<h3 id="多线程原理"><a href="#多线程原理" class="headerlink" title="多线程原理"></a>多线程原理</h3><img src="https://i.loli.net/2018/05/01/5ae8717148111.png" alt="多线程原理.png"><h3 id="多线程在iOS开发中的应用"><a href="#多线程在iOS开发中的应用" class="headerlink" title="多线程在iOS开发中的应用"></a>多线程在iOS开发中的应用</h3><img src="https://i.loli.net/2018/05/01/5ae87321b3cb2.png" alt="多线程在iOS开发中的应用.png"></li>
 </ol>
 
       
@@ -505,7 +513,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS记错/" rel="tag"># iOS记错</a>
+            <a href="/tags/iOS-多线程/" rel="tag"># iOS 多线程</a>
           
         </div>
       
@@ -518,8 +526,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/07/Mac/Mac使用/" rel="next" title="Mac使用">
-                <i class="fa fa-chevron-left"></i> Mac使用
+              <a href="/2018/04/26/iOS知识/上传图片/" rel="next" title="上传图片带进度条">
+                <i class="fa fa-chevron-left"></i> 上传图片带进度条
               </a>
             
           </div>
@@ -528,8 +536,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/15/实用技术/ios上架相关/" rel="prev" title="用Xcode打包上架流程">
-                用Xcode打包上架流程 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/01/iOS知识/多线程网络/多线程NSThread/" rel="prev" title="多线程(二)NSThread">
+                多线程(二)NSThread <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -711,7 +719,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS很多优秀开源项目版本支持低"><span class="nav-number">1.</span> <span class="nav-text">iOS很多优秀开源项目版本支持低</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程"><span class="nav-number">1.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程"><span class="nav-number">2.</span> <span class="nav-text">线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多线程"><span class="nav-number">3.</span> <span class="nav-text">多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#多线程优点："><span class="nav-number">3.1.</span> <span class="nav-text">多线程优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多线程缺点："><span class="nav-number">3.2.</span> <span class="nav-text">多线程缺点：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多线程原理"><span class="nav-number">4.</span> <span class="nav-text">多线程原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多线程在iOS开发中的应用"><span class="nav-number">5.</span> <span class="nav-text">多线程在iOS开发中的应用</span></a></li></ol></div>
             
 
           </div>

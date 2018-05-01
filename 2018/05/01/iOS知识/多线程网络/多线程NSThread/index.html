@@ -118,7 +118,7 @@
 
 
 
-  <meta name="keywords" content="iOS记错," />
+  <meta name="keywords" content="iOS 多线程," />
 
 
 
@@ -131,20 +131,20 @@
 
 
 
-<meta name="description" content="iOS很多优秀开源项目版本支持低 现在下下来，运行会报错，我之前傻傻的，把好项目给删了，还很生气，辛辛苦苦下一伙，还跑不起    找到图中3的位置，调整支持版本就可以啦，很简单吧！">
-<meta name="keywords" content="iOS记错">
+<meta name="description" content="NSThread创建和启动线程的3种方式 先创建，后启动   创建 NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];  启动线程 [thread start];    创建线程后自动启动线程 [NSThread detachNewThreadSelector:">
+<meta name="keywords" content="iOS 多线程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="xcodemiss">
-<meta property="og:url" content="hongdd.top/2018/04/10/iOS知识/xcodemiss/index.html">
+<meta property="og:title" content="多线程(二)NSThread">
+<meta property="og:url" content="hongdd.top/2018/05/01/iOS知识/多线程网络/多线程NSThread/index.html">
 <meta property="og:site_name" content="挚爱 | HUI">
-<meta property="og:description" content="iOS很多优秀开源项目版本支持低 现在下下来，运行会报错，我之前傻傻的，把好项目给删了，还很生气，辛辛苦苦下一伙，还跑不起    找到图中3的位置，调整支持版本就可以啦，很简单吧！">
+<meta property="og:description" content="NSThread创建和启动线程的3种方式 先创建，后启动   创建 NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];  启动线程 [thread start];    创建线程后自动启动线程 [NSThread detachNewThreadSelector:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.loli.net/2018/04/14/5ad15a190b65e.png">
-<meta property="og:updated_time" content="2018-04-15T15:52:15.124Z">
+<meta property="og:image" content="https://i.loli.net/2018/05/01/5ae887918509c.png">
+<meta property="og:updated_time" content="2018-05-01T15:38:41.712Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xcodemiss">
-<meta name="twitter:description" content="iOS很多优秀开源项目版本支持低 现在下下来，运行会报错，我之前傻傻的，把好项目给删了，还很生气，辛辛苦苦下一伙，还跑不起    找到图中3的位置，调整支持版本就可以啦，很简单吧！">
-<meta name="twitter:image" content="https://i.loli.net/2018/04/14/5ad15a190b65e.png">
+<meta name="twitter:title" content="多线程(二)NSThread">
+<meta name="twitter:description" content="NSThread创建和启动线程的3种方式 先创建，后启动   创建 NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];  启动线程 [thread start];    创建线程后自动启动线程 [NSThread detachNewThreadSelector:">
+<meta name="twitter:image" content="https://i.loli.net/2018/05/01/5ae887918509c.png">
 
 
 
@@ -173,12 +173,12 @@
 </script>
 
 
-  <link rel="canonical" href="hongdd.top/2018/04/10/iOS知识/xcodemiss/"/>
+  <link rel="canonical" href="hongdd.top/2018/05/01/iOS知识/多线程网络/多线程NSThread/"/>
 
 
 
 
-  <title>xcodemiss | 挚爱 | HUI</title>
+  <title>多线程(二)NSThread | 挚爱 | HUI</title>
   
 
 
@@ -345,7 +345,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="hongdd.top/2018/04/10/iOS知识/xcodemiss/">
+    <link itemprop="mainEntityOfPage" href="hongdd.top/2018/05/01/iOS知识/多线程网络/多线程NSThread/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LY-Hong">
@@ -362,7 +362,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">xcodemiss</h1>
+          <h1 class="post-title" itemprop="name headline">多线程(二)NSThread</h1>
         
 
         <div class="post-meta">
@@ -374,8 +374,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-10T10:27:12+08:00">
-                2018-04-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-01T22:37:59+08:00">
+                2018-05-01
               </time>
             
 
@@ -434,13 +434,52 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><hr>
-<h3 id="iOS很多优秀开源项目版本支持低"><a href="#iOS很多优秀开源项目版本支持低" class="headerlink" title="iOS很多优秀开源项目版本支持低"></a>iOS很多优秀开源项目版本支持低</h3><ol>
-<li>现在下下来，运行会报错，我之前傻傻的，把好项目给删了，还很生气，辛辛苦苦下一伙，还跑不起</li>
+        <script src="/assets/js/APlayer.min.js"> </script><h3 id="NSThread"><a href="#NSThread" class="headerlink" title="NSThread"></a>NSThread</h3><h4 id="创建和启动线程的3种方式"><a href="#创建和启动线程的3种方式" class="headerlink" title="创建和启动线程的3种方式"></a>创建和启动线程的3种方式</h4><ol>
+<li>先创建，后启动</li>
 </ol>
-<p><img src="https://i.loli.net/2018/04/14/5ad15a190b65e.png" alt="解决方案"></p>
+<ul>
+<li><p>创建</p>
+<pre><code>NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];
+</code></pre></li>
+<li><p>启动线程</p>
+<pre><code>[thread start];
+</code></pre></li>
+</ul>
 <ol>
-<li>找到图中3的位置，调整支持版本就可以啦，很简单吧！</li>
+<li><p>创建线程后自动启动线程</p>
+<pre><code>[NSThread detachNewThreadSelector:@selector(run) toTarget:self withObject:nil];
+</code></pre></li>
+<li><p>隐式创建并启动线程</p>
+<pre><code>[self performSelectorInBackground:@selector(run) withObject:nil];
+</code></pre><h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4></li>
+</ol>
+<ul>
+<li><p>获得主线程</p>
+<pre><code>+ (NSThread *)mainThread; 
+</code></pre></li>
+<li><p>获得当前线程</p>
+<pre><code>NSThread *current = [NSThread currentThread];
+</code></pre></li>
+<li><p>线程的名字</p>
+<pre><code>- (void)setName:(NSString *)n;
+- (NSString *)name;
+</code></pre></li>
+<li><p>阻塞（暂停）线程</p>
+<pre><code>+ (void)sleepUntilDate:(NSDate *)date;
++ (void)sleepForTimeInterval:(NSTimeInterval)ti;
+</code></pre><h3 id="线程同步-数据安全隐患"><a href="#线程同步-数据安全隐患" class="headerlink" title="线程同步 数据安全隐患"></a>线程同步 数据安全隐患</h3></li>
+</ul>
+<ol>
+<li>实质：为了防止多个线程访问同一块资源造成数据安全问题</li>
+<li><p>实现：给代码加一个互斥锁（同步锁）</p>
+<pre><code>@synchronized(锁对象) { // 需要锁定的代码  }
+注意：锁定1份代码只用1把锁，用多把锁是无效的
+</code></pre><p><img src="https://i.loli.net/2018/05/01/5ae887918509c.png" alt="数据安全隐患.png"></p>
+</li>
+<li><p>atomic：线程安全，需要消耗大量的资源</p>
+</li>
+<li>nonatomic：非线程安全，适合内存小的移动设备</li>
+<li>开发建议：<br> 1.尽量避免多线程抢夺同一块资源；<br> 2.尽量将加锁、资源抢夺的业务逻辑交给服务器端处理，减小移动客户端的压力</li>
 </ol>
 
       
@@ -505,7 +544,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS记错/" rel="tag"># iOS记错</a>
+            <a href="/tags/iOS-多线程/" rel="tag"># iOS 多线程</a>
           
         </div>
       
@@ -518,8 +557,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/07/Mac/Mac使用/" rel="next" title="Mac使用">
-                <i class="fa fa-chevron-left"></i> Mac使用
+              <a href="/2018/05/01/iOS知识/多线程网络/多线程网络一/" rel="next" title="多线程基础（一）">
+                <i class="fa fa-chevron-left"></i> 多线程基础（一）
               </a>
             
           </div>
@@ -527,10 +566,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/15/实用技术/ios上架相关/" rel="prev" title="用Xcode打包上架流程">
-                用Xcode打包上架流程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -711,7 +746,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS很多优秀开源项目版本支持低"><span class="nav-number">1.</span> <span class="nav-text">iOS很多优秀开源项目版本支持低</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#NSThread"><span class="nav-number">1.</span> <span class="nav-text">NSThread</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建和启动线程的3种方式"><span class="nav-number">1.1.</span> <span class="nav-text">创建和启动线程的3种方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用方法"><span class="nav-number">1.2.</span> <span class="nav-text">常用方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程同步-数据安全隐患"><span class="nav-number">2.</span> <span class="nav-text">线程同步 数据安全隐患</span></a></li></ol></div>
             
 
           </div>
