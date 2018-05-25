@@ -4,19 +4,39 @@
 
     
   <url>
-    <loc>hongdd.top/2018/05/12/%E5%AE%9E%E7%94%A8%E6%8A%80%E6%9C%AF/%E8%92%B2%E5%85%AC%E8%8B%B1%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2018-05-12T08:05:15.976Z</lastmod>
+    <loc>hongdd.top/2018/05/25/iOS%E7%9F%A5%E8%AF%86/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95%E5%88%86%E4%BA%AB%E6%94%AF%E4%BB%98/%E5%8F%8B%E7%9B%9F%E6%8E%A8%E9%80%81/</loc>
+    <lastmod>2018-05-25T15:00:22.788Z</lastmod>
     <data>
         <display>
-        <title>蒲公英测试</title>
-        <pubTime>2018-05-12T07:33:05.005Z</pubTime>
+        <title>iOS友盟推送</title>
+        <pubTime>2018-05-25T00:37:37.624Z</pubTime>
         
-        <tag>学习</tag>
+        <tag>三方登录分享推送</tag>
          
          
            
              
-              <breadCrumb title="实用技术" url="hongdd.top/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E6%9C%AF/"/>
+              <breadCrumb title="iOS知识" url="hongdd.top/categories/iOS%E7%9F%A5%E8%AF%86/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>hongdd.top/2018/05/25/iOS%E7%9F%A5%E8%AF%86/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95%E5%88%86%E4%BA%AB%E6%94%AF%E4%BB%98/%E5%8F%8B%E7%9B%9F%E5%88%86%E4%BA%AB/</loc>
+    <lastmod>2018-05-25T14:45:40.300Z</lastmod>
+    <data>
+        <display>
+        <title>友盟分享</title>
+        <pubTime>2018-05-25T00:39:32.015Z</pubTime>
+        
+        <tag>三方登录分享推送</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS知识" url="hongdd.top/categories/iOS%E7%9F%A5%E8%AF%86/"/>
           
         </display>
     </data>
@@ -25,13 +45,13 @@
     
   <url>
     <loc>hongdd.top/2018/05/07/iOS%E7%9F%A5%E8%AF%86/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95%E5%88%86%E4%BA%AB%E6%94%AF%E4%BB%98/QQ%E7%99%BB%E5%BD%95%E5%88%86%E4%BA%AB/</loc>
-    <lastmod>2018-05-07T15:50:30.447Z</lastmod>
+    <lastmod>2018-05-25T14:33:58.665Z</lastmod>
     <data>
         <display>
         <title>QQ登录分享原生</title>
         <pubTime>2018-05-07T15:22:18.885Z</pubTime>
         
-        <tag>QQ开放</tag>
+        <tag>三方登录分享推送</tag>
          
          
            
@@ -45,18 +65,38 @@
     
   <url>
     <loc>hongdd.top/2018/05/06/iOS%E7%9F%A5%E8%AF%86/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95%E5%88%86%E4%BA%AB%E6%94%AF%E4%BB%98/%E5%BE%AE%E4%BF%A1%E5%88%86%E4%BA%AB/</loc>
-    <lastmod>2018-05-07T15:23:50.188Z</lastmod>
+    <lastmod>2018-05-25T14:33:52.636Z</lastmod>
     <data>
         <display>
         <title>iOS微信原生分享</title>
         <pubTime>2018-05-06T13:11:33.745Z</pubTime>
         
-        <tag>微信开放</tag>
+        <tag>三方登录分享推送</tag>
          
          
            
              
               <breadCrumb title="iOS知识" url="hongdd.top/categories/iOS%E7%9F%A5%E8%AF%86/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>hongdd.top/2018/05/12/%E5%AE%9E%E7%94%A8%E6%8A%80%E6%9C%AF/%E8%92%B2%E5%85%AC%E8%8B%B1%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2018-05-12T08:05:15.976Z</lastmod>
+    <data>
+        <display>
+        <title>蒲公英测试</title>
+        <pubTime>2018-05-12T07:33:05.005Z</pubTime>
+        
+        <tag>学习</tag>
+         
+         
+           
+             
+              <breadCrumb title="实用技术" url="hongdd.top/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E6%9C%AF/"/>
           
         </display>
     </data>
